@@ -1,10 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
-*{
-	font-family: 'Bellota', cursive;
-}
 
 #logo{
     font-family: 'Silkscreen', cursive;
@@ -17,11 +11,6 @@
 
 a{
 	text-decoration: none;
-	font-family: 'Poppins', sans-serif;
-}
-
-input[type="submit"]{
-	font-family: 'Poppins', sans-serif;
 }
 
 #del-c{
