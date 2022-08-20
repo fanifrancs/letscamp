@@ -1,0 +1,33 @@
+<%- include ('./partials/header') %> 
+  <div class="form-new-c">
+      <div class="container mt-4">
+          <h3 class="text-center">Register</h3>
+          <form method="post" action="/register">
+            <input class="form-control" placeholder="username" 
+              oninput="value = value.toLowerCase()" 
+              type="text" name="username" required
+            ><br>
+            <input id="p1" class="form-control" placeholder="password" type="password" name="password" required><br>
+            <input id="p2" class="form-control" placeholder="confirm password" type="password" required><br>
+            <p id="message"></p>
+            <input id="submit" class="btn btn-success" type="submit" name="submit">
+          </form>
+      </div>
+  </div>
+  
+  <script type="text/javascript">
+    let message = document.querySelector('#message');
+    document.addEventListener('submit', (e) => {
+      let p1 = document.querySelector('#p1').value;
+      let p2 = document.querySelector('#p2').value;
+      if (p1 !== p2) {
+        e.preventDefault();
+        message.innerText = 'Passwords do not match';
+        message.style.display = 'block';
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 2000)
+      }
+    })
+  </script>
+<%- include ('./partials/footer') %>

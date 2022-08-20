@@ -1,0 +1,27 @@
+<%- include ('./partials/header') %>
+  <div class="container">
+      <div class="mt-4 p-5 bg-dark text-white rounded">
+        <h1><i class="fa-solid fa-tent"></i> Welcome to Let's Camp!</h1> 
+        <p>Browse through hand-picked campgrounds from all over the world</p>
+        <a class="btn btn-sm btn-primary" href="/campgrounds/new">Add new Campground</a>
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <% campgrounds.forEach((campground) => { %>
+        <div class="col-md-3 col-sm-6 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title text-center"><%= campground.name %></h6>
+                    <img class="mx-auto d-block img-fluid" src="<%= campground.image %>" alt="img">
+                    <div class="text-center mt-2">
+                      <a href="/campgrounds/<%= campground._id %>">more info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <% }) %>
+    </div>
+  </div> 
+<%- include ('./partials/footer') %>
