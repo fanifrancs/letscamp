@@ -9,7 +9,7 @@ Take a look right [here](https://lcamp.herokuapp.com)
 - express
 - ejs
 - mongodb
-- mongoose
+- passport
 - all other packages in package.json
 
 ## Features
