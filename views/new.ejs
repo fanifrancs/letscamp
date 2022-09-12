@@ -1,13 +1,13 @@
 <%- include ('./partials/header') %>
-    <div class="form-new-c">
-        <div class="container mt-4">
-            <h3 class="text-center">Add a new Campground</h3>
-            <form method="post" action="/campgrounds">
-                <input class="form-control" placeholder="campground name" type="text" name="campground[name]" required><br>
-                <input class="form-control" placeholder="image url" type="url" name="campground[image]" required><br>
-                <textarea class="form-control" placeholder="describe campground" rows="5" name="campground[desc]" required></textarea><br>
-                <input class="btn btn-primary" type="submit" name="submit">
-            </form>
+        <div class="form-new-c">
+            <div class="container mt-4">
+                <h3 class="text-center">Add a new Campground</h3>
+                <form method="post" action="/campgrounds">
+                    <input class="form-control" placeholder="campground name" type="text" name="campground[name]" required><br>
+                    <input class="form-control" placeholder="image url" type="url" name="campground[image]" required><br>
+                    <textarea class="form-control" placeholder="describe campground" rows="5" name="campground[desc]" required></textarea><br>
+                    <input class="btn btn-primary" type="submit" name="submit">
+                </form>
+            </div>
         </div>
-    </div>
 <%- include ('./partials/footer') %>

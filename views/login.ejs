@@ -1,15 +1,15 @@
 <%- include ('./partials/header') %> 
-  <div class="form-new-c">
+    <div class="form-new-c">
       <div class="container mt-4">
-          <h3 class="text-center">Login</h3>
-          <form method="post" action="/login">
-            <input class="form-control" placeholder="username" 
-              oninput="value = value.toLowerCase()" type="text" 
-              name="username" required
-            ><br>
-            <input id="p1" class="form-control" placeholder="password" type="password" name="password" required><br>
-            <input id="submit" class="btn btn-primary" type="submit" name="submit">
-          </form>
+        <h3 class="text-center">Login</h3>
+        <form method="post" action="/login">
+          <input class="form-control" placeholder="username" 
+            oninput="value = value.toLowerCase()" type="text" 
+            name="username" required
+          ><br>
+          <input id="p1" class="form-control" placeholder="password" type="password" name="password" required><br>
+          <input id="submit" class="btn btn-primary" type="submit" name="submit">
+        </form>
       </div>
-  </div>
+    </div>
 <%- include ('./partials/footer') %>
