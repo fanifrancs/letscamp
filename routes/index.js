@@ -5,13 +5,13 @@ router        = express.Router();
 
 router.get('/', (req, res) => {
     res.redirect('/campgrounds');
-});
+})
 
-router.get('/register', (req, res) => {
+router.get('/register', isAuthorized, (req, res) => {
     res.render('register');
-});
+})
 
-router.post('/register', (req, res) => {
+router.post('/register', isAuthorized, (req, res) => {
     let newUser = new User({username : req.body.username});
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
@@ -23,32 +23,30 @@ router.post('/register', (req, res) => {
             res.redirect('/campgrounds');
         });
     });
-});
+})
 
-router.get('/login', (req, res) => {
+router.get('/login', isAuthorized, (req, res) => {
     res.render('login');
-});
+})
 
-router.post('/login', passport.authenticate('local',
+router.post('/login', isAuthorized, passport.authenticate('local',
     {
        successRedirect : '/campgrounds',
        failureRedirect : '/login', 
-    }), (req, res) => {}
-);
+    }
+))
 
 router.get('/logout', (req, res) => {
     req.logout(() => {
         req.flash('success', 'You logged out');
         res.redirect('/login')
     });
-});
+})
 
-function isLoggedIn(req, res, next){
+function isAuthorized (req, res, next) {
     if (req.isAuthenticated()) {
-        return next();
-    };
-    req.flash('error', 'please login first');
-    res.redirect('/login');
+        return res.redirect('/');
+    }; next();
 }
 
 module.exports = router;

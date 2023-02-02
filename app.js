@@ -5,8 +5,8 @@ methodOverride = require('method-override'),
 passport       = require('passport'),
 flash          = require('connect-flash'),
 LocalStrategy  = require('passport-local'),
-Campground     = require('./models/campground'),
-Comment        = require('./models/comment'),
+// Campground     = require('./models/campground'),
+// Comment        = require('./models/comment'),
 User           = require('./models/user'),
 app            = express();
 
@@ -15,16 +15,6 @@ require('dotenv').config();
 const commentRoutes = require('./routes/comment'),
 campgroundRoutes    = require('./routes/campground'),
 authRoutes          = require('./routes/index');
-
-function connectDB() {
-    try {
-        // process.env.db_URI = mongodb_URI
-        mongoose.connect(process.env.db_URI);
-        console.log('connected to DB');
-    } catch { 
-        err => console.log(err, 'DB connection went wrong');
-    }
-}
 
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
@@ -53,7 +43,16 @@ app.use(campgroundRoutes);
 app.use(commentRoutes);
 app.use(authRoutes);
 
+function connectDB() {
+    try {
+        mongoose.connect(process.env.db_URI);
+        console.log('DB connected');
+    } catch { 
+        err => console.log(err);
+    }
+}
+
 app.listen(process.env.PORT || 3500, process.env.IP, () => {
     connectDB();
     console.log('server started || 3500');
-});
+})

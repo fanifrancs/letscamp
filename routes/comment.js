@@ -11,7 +11,7 @@ router.get('/campgrounds/:id/comment/new', isLoggedIn, (req, res) => {
             res.render('comment/new', {campground: campground});
         }
     })
-});
+})
 
 router.post('/campgrounds/:id/comments', isLoggedIn, (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
@@ -32,7 +32,7 @@ router.post('/campgrounds/:id/comments', isLoggedIn, (req, res) => {
             })
         }
     })
-});
+})
 
 function isLoggedIn(req, res, next){
     if (req.isAuthenticated()) {

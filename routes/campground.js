@@ -10,11 +10,11 @@ router.get('/campgrounds', (req, res) => {
             res.render('index', {campgrounds: campgrounds});
         }
     })
-});
+})
 
 router.get('/campgrounds/new', isLoggedIn, (req, res) => {
     res.render('new');
-});
+})
 
 router.post('/campgrounds', isLoggedIn, (req, res) => {
 	let author = {
@@ -28,7 +28,7 @@ router.post('/campgrounds', isLoggedIn, (req, res) => {
             res.redirect('/campgrounds');
         }
     })
-});
+})
 
 router.get('/campgrounds/:id', (req, res) => {
     Campground.findById(req.params.id).populate('comments').exec((err, campground) => {
@@ -38,7 +38,7 @@ router.get('/campgrounds/:id', (req, res) => {
             res.render('show', {campground: campground});
         }
     })
-});
+})
 
 router.delete('/campgrounds/:id', checkCampgroundOwnership, (req, res) => {
     Campground.findByIdAndRemove(req.params.id, (err) => {
@@ -48,7 +48,7 @@ router.delete('/campgrounds/:id', checkCampgroundOwnership, (req, res) => {
             res.redirect('/campgrounds');
         }
     })
-});
+})
 
 function isLoggedIn(req, res, next){
     if (req.isAuthenticated()) {
