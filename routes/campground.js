@@ -7,7 +7,7 @@ router.get('/campgrounds', (req, res) => {
         if (err) {
             console.log('error');
         } else {
-            res.render('index', {campgrounds: campgrounds});
+            res.render('index', {campgrounds});
         }
     })
 })
@@ -35,7 +35,7 @@ router.get('/campgrounds/:id', (req, res) => {
         if (err) {
             res.redirect('/campgrounds');
         } else {
-            res.render('show', {campground: campground});
+            res.render('show', {campground});
         }
     })
 })
